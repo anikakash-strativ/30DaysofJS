@@ -6,6 +6,7 @@ const monthlySalary = ammounts[0];
 const annualBonus = ammounts[1];
 const monthlyCoursesIncome = ammounts[2];
 
+
 const annualSalary = monthlySalary * 12;
 const annualCoursesIncome = monthlyCoursesIncome * 12;
 
