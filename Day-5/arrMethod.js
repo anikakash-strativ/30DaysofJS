@@ -58,3 +58,4 @@ console.log(names.join(' ')) //Asabeneh Mathias Elias Brook
 console.log(names.join(', ')) //Asabeneh, Mathias, Elias, Brook
 console.log(names.join(' ,')) 
 console.log(names.join(' # ')) //Asabeneh # Mathias # Elias # Brook
+
