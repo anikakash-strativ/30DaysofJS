@@ -30,3 +30,13 @@ while(arr.length<5){
 }
 console.log(arr)
 
+// 6 size random id:
+
+const str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+let randomStr = "";
+for(let i=1; i<=6; i++){
+    let random = Math.round(Math.random()*str.length);
+    randomStr+=str[random];
+}
+console.log(randomStr)
