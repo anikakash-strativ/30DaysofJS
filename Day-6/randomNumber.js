@@ -40,3 +40,17 @@ for(let i=1; i<=6; i++){
     randomStr+=str[random];
 }
 console.log(randomStr)
+
+
+// random stirng that generate hexadecimal number.
+
+function generateHEAX (){
+    const heaxstr = "0123456789abcdef";
+    let hex = "#"
+    for(let i=0; i<6; i++){
+        hex += heaxstr[Math.floor(Math.random() * heaxstr.length)];
+    }
+    return hex;
+}
+
+console.log(generateHEAX())
