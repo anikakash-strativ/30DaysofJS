@@ -54,3 +54,23 @@ function generateHEAX (){
 }
 
 console.log(generateHEAX())
+
+
+
+
+const countries = [
+    'Albania',
+    'Bolivia',
+    'Canada',
+    'Denmark',
+    'Ethiopia',
+    'Finland',
+    'Germany',
+    'Hungary',
+    'Ireland',
+    'Japan',
+    'Kenya'
+  ]
+
+const selectedCountries = countries.map(country => country);
+console.log(selectedCountries)
