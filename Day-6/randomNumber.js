@@ -72,5 +72,10 @@ const countries = [
     'Kenya'
   ]
 
-const selectedCountries = countries.map(country => country);
+const selectedCountries = countries.map(country =>{
+    const short =  country.slice(0,3).toUpperCase();
+    const len = country.length;
+    return [country, short, len];
+});
 console.log(selectedCountries)
+
