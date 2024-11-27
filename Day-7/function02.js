@@ -29,7 +29,23 @@ function solveQuadratic(a = 1, b = 0, c = 0) {
       console.log(array[i]);
     }
   }
-  
+  console.log()
   printArray([1, 2, 3, 4, 5]); 
+  console.log()
   printArray(["apple", "banana", "cherry"]); 
   
+  //5 
+
+  function swapValues(a, b){
+    console.log(`\nBefore Swap: ${a} ${b}`);
+
+    let temp = a;
+    a = b;
+    b = temp;
+
+    console.log(`After Swap: ${a} ${b}\n`);
+  }
+
+  swapValues(10, 24);
+
+  //
