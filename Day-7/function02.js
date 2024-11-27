@@ -23,4 +23,13 @@ function solveQuadratic(a = 1, b = 0, c = 0) {
   console.log(solveQuadratic(1, -1, 0))     
   
 
+  // 3
+  function printArray(array) {
+    for (let i = 0; i < array.length; i++) {
+      console.log(array[i]);
+    }
+  }
+  
+  printArray([1, 2, 3, 4, 5]); 
+  printArray(["apple", "banana", "cherry"]); 
   
