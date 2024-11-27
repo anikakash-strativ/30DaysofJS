@@ -23,3 +23,18 @@ function userIdGeneratedByUser() {
   
   userIdGeneratedByUser();
   
+
+  // 5 convertHexaToRgb :
+
+  function convertHexaToRgb (hex){
+    hex = hex.replace("#", '');
+    const r = parseInt(hex.slice(0, 2), 16);
+    const g = parseInt(hex.slice(2, 4), 16);
+    const b = parseInt(hex.slice(4, 6), 16);
+
+    return `rgb(${r}, ${g}, ${b})`;
+
+    
+  }
+
+console.log(`Hex to RGB : ${convertHexaToRgb('#3E2A72')}`);
