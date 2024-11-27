@@ -56,7 +56,7 @@ function generateHEAX (){
 console.log(generateHEAX())
 
 
-
+// 6 Use the countries array to create the following array of arrays:
 
 const countries = [
     'Albania',
@@ -79,3 +79,23 @@ const selectedCountries = countries.map(country =>{
 });
 console.log(selectedCountries)
 
+
+console.log("Country with land ----- \n")
+
+const landCountry = countries.filter(country =>{
+   return country.includes('land')
+})
+
+if(landCountry.length>0){
+    console.log(landCountry)
+}else{
+    console.log("No country without land.")
+}
+
+
+// Longest Country Name:
+const LongestCountry = countries.reduce((longest, country)=>{
+    return country.length > longest.length ? country : longest;
+})
+
+console.log(`Longest Country : ${LongestCountry}`);
