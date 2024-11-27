@@ -69,3 +69,36 @@ function addItem(item, arr){
 let myarr = [];
 console.log(addItem(5, myarr));
 console.log(addItem(6, myarr));
+console.log()
+//9 
+
+function removeItem(idx, arr){
+    console.log(`Before remove an index : ${arr}`)
+    if(idx>=0 && idx<arr.length){
+        arr.splice(idx, 1);
+    }
+    return arr;
+}
+
+let arr = [1, 2, 3, 4, 5, 6];
+
+console.log(removeItem(2, arr));
+
+//14
+
+function sum(...args){
+    let totla = 0;
+    for(let num of args){
+        totla+=num;
+    }
+    return totla;
+}
+
+console.log(`\nSum of the array is ${sum(1,2,3,4,5)}\n`)
+
+//15
+function randomUserIp() {
+    return `${Math.floor(Math.random() * 256)}.${Math.floor(Math.random() * 256)}.${Math.floor(Math.random() * 256)}.${Math.floor(Math.random() * 256)}`;
+  }
+  
+  console.log(`\nRandom IP Address: ${randomUserIp()}`);
