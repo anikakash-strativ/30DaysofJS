@@ -61,15 +61,19 @@ console.log(generateHEAX())
 const countries = [
     'Albania',
     'Bolivia',
+    'Antigua and Barbuda',
     'Canada',
     'Denmark',
+    'United Kingdom',
     'Ethiopia',
     'Finland',
     'Germany',
     'Hungary',
     'Ireland',
     'Japan',
-    'Kenya'
+    'Burkina Faso',
+    'Kenya',
+    'East Timor (Timor Timur)',
   ]
 
 const selectedCountries = countries.map(country =>{
@@ -99,3 +103,16 @@ const LongestCountry = countries.reduce((longest, country)=>{
 })
 
 console.log(`Longest Country : ${LongestCountry}`);
+
+
+// Extract countries that contain two or more words.
+
+const moreThenTwo = countries.filter(country => country.split(' ').length >= 2)
+console.log(moreThenTwo);
+
+
+const reversedAndCapitalizedCountries = [...countries]
+  .reverse()
+  .map(country => country.toUpperCase());
+
+console.log('Reversed and Capitalized Countries:', reversedAndCapitalizedCountries);
