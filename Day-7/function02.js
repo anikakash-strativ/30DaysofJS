@@ -48,4 +48,24 @@ function solveQuadratic(a = 1, b = 0, c = 0) {
 
   swapValues(10, 24);
 
-  //
+  // 6 
+  function reverseArray(arr){
+    let revarr = [];
+
+    for(let i=arr.length-1; i>=0; i--){
+        revarr.push(arr[i]);
+    }
+    return revarr;
+  }
+
+  console.log(`\nReverse array: ${reverseArray([1, 2, 3, 4])}`);
+
+  // 8
+
+function addItem(item, arr){
+    arr.push(item);
+    return arr;
+}
+let myarr = [];
+console.log(addItem(5, myarr));
+console.log(addItem(6, myarr));
