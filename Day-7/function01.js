@@ -51,4 +51,4 @@ function checkSeason(month) {
     }
 }
 
-console.log(checkSeason("March")); // Example usage: "March" will return "Spring"
+console.log(checkSeason("March")); 
