@@ -17,3 +17,18 @@ console.log([...text.matchAll(annualIncomePattern)].map(match => parseInt(match[
 let totalIncome = totalMonthlyIncome + totalAnnualIncome;
 
 console.log("Total Annual Income:", totalIncome, "euro");
+
+// Task 2:
+
+const texts = "The position of some particles on the horizontal x-axis 5, -12, -4, -3 and -1 in the negative direction, 0 at origin, 4 and 8 in the positive direction.";
+
+const points = texts.match(/-?\d+/g).map(Number);
+
+const sortedPoints = points.sort((a, b) => a - b); 
+
+const distance = Math.abs(sortedPoints[sortedPoints.length - 1] - sortedPoints[0]);
+
+console.log("Extracted Points:", points);
+console.log("Sorted Points:", sortedPoints);
+console.log("Distance between furthest particles:", distance);
+
