@@ -32,3 +32,14 @@ console.log("Extracted Points:", points);
 console.log("Sorted Points:", sortedPoints);
 console.log("Distance between furthest particles:", distance);
 
+// Variable check:
+
+function is_valid_variable(name) {
+    const regex = /^[a-zA-Z_$][a-zA-Z0-9_$]*$/;
+    return regex.test(name);
+}
+
+console.log(is_valid_variable('first_name')); // True
+console.log(is_valid_variable('first-name')); // False
+console.log(is_valid_variable('1first_name')); // False
+console.log(is_valid_variable('firstname'));  // True
