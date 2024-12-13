@@ -154,3 +154,4 @@ for (const user in users) {
 }
 
 console.log(`User with the most skills is ${userWithMostSkills} with ${maxSkillsCount} skills.`);
+
