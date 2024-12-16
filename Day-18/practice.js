@@ -23,3 +23,18 @@ fetch(countriesAPI)
     .catch(error => console.error('Error fetching data:', error))
 
 
+// Task 2:
+
+const catsAPI = 'https://api.thecatapi.com/v1/breeds'
+
+fetch(catsAPI)
+    .then(response => response.json())
+    .then(data => {
+        data.forEach(cat => {
+            const name = cat.name;
+
+            console.log(`Name of a Cat : ${name}`)
+            console.log('-------------------');
+        })
+    })
+    .catch()
