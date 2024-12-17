@@ -1,0 +1,104 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>JavaScript for Everyone:DOM</title>
+  </head>
+  <body>
+    <div class="wrapper">
+        <h1>Anik Dash Akash Complete the 30 Days JS Challenges. 2024</h1>
+        <h2>30DaysOfJavaScript Challenge </h2>
+        <div class="dateTime"></div>
+        <ul>
+            <li>30DaysOfPython Challenge Done</li>
+            <li>30DaysOfJavaScript Challenge Ongoing</li>
+            <li>30DaysOfReact Challenge Coming</li>
+            <li>30DaysOfFullStack Challenge Coming</li>
+            <li>30DaysOfDataAnalysis Challenge Coming</li>
+            <li>30DaysOfReactNative Challenge Coming</li>
+            <li>30DaysOfMachineLearning Challenge Coming</li>
+        </ul>
+    </div>
+
+    <script>
+
+      const fullBox = document.getElementsByClassName('wrapper');
+        
+        const heading = document.querySelector('h1');
+        heading.style.fontSize='22px'
+        
+        const year = heading.textContent.split(' ').pop();
+        heading.innerHTML = heading.innerHTML.replace(year, `<span id="year" style="font-size: 50px;">${year} </span>`)
+
+      // Random Color function:
+        const getRandomColor = ()=>{
+          const hexs = '0123456789ABCDEF';
+
+          let color = "#";
+          for(let i=0; i<6; i++){
+            color += hexs[Math.floor(Math.random()*16)];
+          }
+          return color;
+        }
+
+
+        // Year color
+       setInterval(()=>{
+        const yearEle = document.getElementById("year");
+        yearEle.style.color = getRandomColor();
+       }, 1000);
+
+
+       // Date time
+       const getFormattedDateTime = ()=>{
+            const now = new Date();
+            const formattedDate = new Intl.DateTimeFormat('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: true,
+            }).format(now);
+
+            return formattedDate;
+       }
+
+       const updateDateTime = () =>{
+          const dateElement = document.querySelector('.dateTime');
+          dateElement.textContent = getFormattedDateTime();
+          dateElement.style.marginBottom = '10px';  
+          dateElement.style.padding = '10px';  
+          dateElement.style.borderRadius = '5px'; 
+          dateElement.style.backgroundColor = getRandomColor(); 
+       }
+
+       setInterval(updateDateTime, 1000);
+
+       // list:
+
+       const list = document.querySelectorAll('ul');
+
+       for(let i=0; i < list.length; i++){
+          list[i].style.listStyleType  = 'none';
+          list[i].style.padding = '5px';
+          list[i].style.margin = '10px'; 
+          list[i].style.backgroundColor = '#4e4e4c';
+
+          const listItems = list[i].querySelectorAll('li');
+
+          listItems.forEach((item)=>{
+            item.style.marginBottom = '10px';  
+            item.style.padding = '10px';       
+            item.style.backgroundColor = getRandomColor(); 
+            item.style.borderRadius = '5px';   
+
+          })
+       }
+
+
+
+    </script>
+  </body>
+</html>
