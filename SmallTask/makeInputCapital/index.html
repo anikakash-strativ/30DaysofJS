@@ -12,7 +12,9 @@
 
 <script>
     let vals = document.getElementById("names");
-    vals.addEventListener = vals.value.toUpperCase();
+    vals.addEventListener("input", function(){
+        vals.value = vals.value.toUpperCase();
+    });
     
 </script>
 
