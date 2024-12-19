@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of countries</title>
+    <style>
+        .listOfCountires{
+            display: grid;
+            row-gap: 5px;
+            column-gap: 5px;
+            grid-template-columns: repeat(6, 1fr);
+            margin-left: 20%;
+            margin-right: 20%;
+        }
+        .country{
+            padding: 30px 0;
+            text-align: center;
+            background: aliceblue;
+            border-radius: 5px;
+            box-shadow: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>WORLD COUNTRIES LIST</h1>
+    <h3>Total Number of countries: <span class="numberOfCountrys"></span></h3>
+
+    <div class="listOfCountires">
+
+    </div>
+    <script>
+        const countriesAPI = 'https://restcountries.com/v2/all';
+        const list = document.querySelector(".listOfCountires")
+        fetch(countriesAPI)
+            .then(data => data.json())
+            .then(data => {
+                data.forEach(({name}) => {
+                    const countryEle = document.createElement("div");
+                    countryEle.textContent = name;
+                    countryEle.classList.add("country")
+                    list.appendChild(countryEle);
+                });
+                const numOfCountry = document.querySelector('.numberOfCountrys')
+                numOfCountry.textContent = data.length;
+                console.log(data.length)
+            })
+            .catch(error => console.error('Error fetching countries:', error));
+
+        console.log(list)
+    </script>
+</body>
+
+</html>
