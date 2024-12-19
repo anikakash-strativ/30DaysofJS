@@ -6,16 +6,15 @@ const countriesAPI = 'https://restcountries.com/v2/all'
 fetch(countriesAPI)
     .then(response => response.json())
     .then(data => {
-        data.forEach(country =>{
-            const name = country.name;
-            const capital = country.capital || 'No Captial';
-            const languages = country.languages.map(lang => lang.name).join(', ');
-            const population = country.population;
-            const area = country.area;
+        data.forEach(({name, capital, languages, population, area}) =>{
+
+                  capital = capital  || 'No Captial';
+            const languageNames  =languages.map(lang => lang.name).join(', ');
+
 
             console.log(`Country: ${name}`);
             console.log(`Capital: ${capital}`);
-            console.log(`Languages: ${languages}`);
+            console.log(`Languages: ${languageNames }`);
             console.log(`Population: ${population}`);
             console.log(`Area: ${area} km²`);
             console.log('-------------------');
@@ -28,17 +27,16 @@ fetch(countriesAPI)
 
 const catsAPI = 'https://api.thecatapi.com/v1/breeds'
 
-// fetch(catsAPI)
-//     .then(response => response.json())
-//     .then(data => {
-//         data.forEach(cat => {
-//             const name = cat.name;
+fetch(catsAPI)
+    .then(response => response.json())
+    .then(data => {
+        data.forEach(({name}) => {
 
-//             console.log(`Name of a Cat : ${name}`)
-//             console.log('-------------------');
-//         })
-//     })
-//     .catch(error => console.error('Error fetching data:', error))
+            console.log(`Name of a Cat : ${name}`)
+            console.log('-------------------');
+        })
+    })
+    .catch(error => console.error('Error fetching data:', error))
 
 
 // Task 3:
