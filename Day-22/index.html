@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Number Generator</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .number_chart>div {
+            display: grid;
+            row-gap: 5px;
+            column-gap: 5px;
+            grid-template-columns: repeat(6, 1fr);
+            margin-left: 20%;
+            margin-right: 20%;
+        }
+
+        .even {
+            background: rgb(74, 173, 74);
+            color: #ffff;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        .odd {
+            background: rgb(235, 235, 113);
+            color: #ffff;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        .prime {
+            background: rgb(205, 110, 110);
+            color: #fff;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        .heading {
+            text-align: center;
+            /* padding: 10px;
+            border: 5px solid red;
+            background-color: antiquewhite;
+            width: 50%; */
+        }
+
+        .heading h1 {
+            color: rgb(74, 173, 74);
+        }
+
+        .numberInput {
+            text-align: center;
+            padding: 10px;
+            
+        }
+
+        .btn {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background: rgb(74, 173, 74);
+            color: #fff;
+        }
+
+        #num {
+            width: 40%;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="heading">
+        <h1>Number Generator</h1>
+        <h3>30 DaysOfJavaScript:DOM Day2</h3>
+        <p>Create By: Anik Dash Akash</p>
+    </div>
+    <div class="numberInput">
+        <input id="num" type="text" placeholder="Enter your number">
+        <button type="submit" class="btn">Generate Number</button>
+    </div>
+
+    <div class="number_chart">
+
+
+    </div>
+
+    <script>
+
+        const button = document.querySelector(".btn");
+
+        const isPrime = (n) => {
+            if (n == 2) return 1;
+            if (n % 2 == 0 || n == 1) return 0;
+
+            let root = Math.sqrt(n);
+
+            for (let i = 3; i <= root; i = i + 2)
+                if (n % i == 0)
+                    return 0;
+            return 1;
+        }
+
+
+
+
+        button.addEventListener('click', e => {
+
+            const parent = document.createElement("div");
+            const mainParent = document.querySelector(".number_chart")
+            const inputNumber = document.querySelector("#num")
+            const len = Number(inputNumber.value);
+
+
+            if (isNaN(len) || len < 0) {
+                alert("Please enter a valid positive number!");
+                return;
+            }
+
+
+
+            for (let i = 0; i <= len; i++) {
+                const child = document.createElement("div");
+                if (i % 2 == 0 && i !== 2) {
+                    child.append(i);
+                    child.classList.add("even")
+                    parent.append(child);
+                } else if (isPrime(i)) {
+                    child.append(i);
+                    child.classList.add("prime")
+                    parent.append(child);
+                }
+                else if (i % 2 != 0) {
+                    child.append(i)
+                    child.classList.add("odd")
+                    parent.append(child);
+                }
+
+            }
+            mainParent.innerHTML = "";
+            mainParent.appendChild(parent)
+        })
+
+
+
+    </script>
+</body>
+
+</html>
