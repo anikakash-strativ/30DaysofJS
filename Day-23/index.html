@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Know your press button</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: #f0f0f0;
+        }
+
+        .banner {
+            font-size: 35px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 10px 25px;
+        }
+
+        .card {
+            font-size: 48px;
+            font-weight: bold;
+            color: green; /* Green text color */
+            padding: 20px 40px;
+            border: 2px solid rgb(255, 255, 255);
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="center">
+        <div class="banner">Your Pressed <span id="key-pressed">Any KEY</div>
+        <div  id="key-code"></div>
+    </div>
+    <script>
+        document.addEventListener("keydown", (event) => {
+            const key = document.getElementById("key-code");
+            key.classList.add("card");
+            const keyPressed = event.key;
+            const keyCode = event.keyCode || event.which;
+
+            document.getElementById("key-pressed").textContent = keyPressed;
+            document.getElementById("key-code").textContent = keyCode;
+        });
+    </script>
+</body>
+
+</html>
