@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualize the ten most</title>
+    <link rel="stylesheet" href="main.css">
+    <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <h1>World Countries Data</h1>
+            <p>Currently, we have <span id="country_len"></span> countries.</p>
+        </div>
+
+        <div class="result_area">
+            <div class="get_result">
+                <button id="btn_languages" class="btn">LANGUAGES</button>
+                <button id="btn_population" class="btn">POPULATION</button>
+            </div>
+            <p>10 Most <span id="most_item"></span> in the world.</p>
+        </div>
+
+        <div class="bar_chart">
+            <div id="result"></div>
+        </div>
+    </div>
+
+    <script src="./countries_data.js"></script>
+    <script src="./main.js"></script>
+</body>
+
+</html>
