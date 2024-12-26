@@ -11,6 +11,7 @@
             margin: 0;
             font-family: Arial, sans-serif;
         }
+
         .center {
             display: flex;
             flex-direction: column;
@@ -34,12 +35,14 @@
         .card {
             font-size: 48px;
             font-weight: bold;
-            color: green; /* Green text color */
+            color: green;
+            /* Green text color */
             padding: 20px 40px;
             border: 2px solid rgb(255, 255, 255);
             border-radius: 10px;
             background: white;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            /* Subtle shadow */
         }
     </style>
 </head>
@@ -48,7 +51,7 @@
 
     <div class="center">
         <div class="banner">Your Pressed <span id="key-pressed">Any KEY</div>
-        <div  id="key-code"></div>
+        <div id="key-code"></div>
     </div>
     <script>
         document.addEventListener("keydown", (event) => {

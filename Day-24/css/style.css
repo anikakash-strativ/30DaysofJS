@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url(../images/galaxy.gif);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 30px;
+    width: 100%;
+    text-align: center;
+}
+
+.input-area {
+    width: 100%;
+    margin: 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.input-style {
+    width: 16rem;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-left: 15px;
+    height: 40px;
+}
+
+.list {
+    width: 8rem;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-left: 15px;
+    height: 40px;
+}
+
+button {
+    width: 8rem;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-left: 15px;
+    height: 40px;
+}
+
+.show-result-area {
+    width: 120%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background: rgba(74, 69, 69, 0.6);
+    height: 50%;
+    padding: 20px;
+}
+
+img {
+    max-height: 100%;
+    min-width: 100%;
+    object-fit: contain;
+    padding: 25px;
+}
+
+
+.planet-gravity-area {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(216, 215, 215, 0.23);
+    height: 50%;
+    padding: 20px;
+}
+
+
+.resultName p {
+    font-size: 28px;
+}
+
+.planet-name {
+    text-transform: uppercase;
+    font-weight: bold;
+    padding-left: 5px;
+}
+
+
+.result {
+    background:  rgba(216, 215, 215, 0.23);
+    border-radius: 50%;
+    height: 100px;
+    margin: 20px 0;
+    width: 100px;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+}
