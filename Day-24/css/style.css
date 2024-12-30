@@ -9,7 +9,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    /* height: 100vh; */
     color: #fff;
 }
 
@@ -61,7 +61,6 @@ button {
 }
 
 .show-result-area {
-    width: 120%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -103,12 +102,12 @@ img {
 
 
 .result {
-    background:  rgba(216, 215, 215, 0.23);
+    background: rgba(216, 215, 215, 0.23);
     border-radius: 50%;
     height: 100px;
     margin: 20px 0;
     width: 100px;
-    display: flex; 
+    display: flex;
     align-items: center;
     justify-content: center;
 }
