@@ -70,7 +70,7 @@ h3 {
 
 .btn {
     padding: 12px;
-    background-color: rgb(123, 76, 166);
+    background-color: #895BE6;
     border: none;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     color: white;
@@ -80,7 +80,7 @@ h3 {
 }
 
 .btn.active {
-    background-color: darkviolet;
+    background-color: #581CB8;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
@@ -100,7 +100,7 @@ h3 {
 }
 
 .input_form:focus {
-    border: 2px solid rgb(62, 62, 208);
+    border: 2px solid #895BE6;
     /* Add a border when focused */
     box-shadow: 0 0 10px rgba(90, 56, 213, 0.5);
     /* Optional glow effect */
