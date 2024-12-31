@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+    /* background-color: beige; */
+    margin: 15px;
+    padding: 25px;
+}
+
+.inputArea {
+    padding: 25px;
+}
+
+.inputBox {
+    padding: 15px;
+    margin: 5px;
+    outline: none;
+    border: 0.5px solid #E5C9C5;
+}
+
+.btn {
+    padding: 15px;
+    margin: 5px;
+    width: 150px;
+    background-color: #E5C9C5;
+    border: none;
+    font-size: 15px;
+    color: white;
+    cursor: pointer;
+}
+
+.leaderBoard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.card {
+    width: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E5C9C5;
+    margin: 5px;
+
+    div {
+        flex: 1 1 calc(24.99% - 10px);
+        padding: 15px;
+    }
+}
+
+.scoreCrud {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
