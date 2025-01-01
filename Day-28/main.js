@@ -6,15 +6,40 @@ const btn = document.querySelector('.addPlayer');
 const alart = document.querySelector('.alart');
 const leaderBoard = document.querySelector('.leaderBoard');
 
+let players = []; 
 btn.addEventListener("click", () => {
-    console.log("First Name:", firstName.value);
-    console.log("Last Name:", lastName.value);
-    console.log("Country:", country.value);
-    console.log("Player Score:", score.value);
     if (firstName.value === '' || lastName.value === '' || country.value === '' || score.value === '') {
-        alart.innerHTML = '<p>All Fields are required.</p>'
+        alart.innerHTML = '<p>All Fields are required.</p>';
+        return;
     }
-    else {
+
+    alart.innerHTML = ''; 
+
+    
+    const player = {
+        id: Date.now(), 
+        name: `${firstName.value} ${lastName.value}`,
+        country: country.value,
+        score: parseInt(score.value),
+        date: getFormattedDateTime()
+    };
+    players.push(player);
+
+
+    firstName.value = '';
+    lastName.value = '';
+    country.value = '';
+    score.value = '';
+
+    renderLeaderboard(); 
+});
+
+const renderLeaderboard = () => {
+    leaderBoard.innerHTML = ''; 
+
+    players.sort((a, b) => b.score - a.score);
+
+    players.forEach(player => {
         const card = document.createElement('div');
         card.classList.add('card');
 
@@ -22,27 +47,21 @@ btn.addEventListener("click", () => {
         const name = document.createElement('div');
         name.classList.add('name');
         name.innerHTML = `
-        <h3>${firstName.value} ${lastName.value}</h3>
-        <p>${getFormattedDateTime()}</p>
-        `
+            <h3>${player.name}</h3>
+            <p>${player.date}</p>
+        `;
         card.appendChild(name);
 
-
-        // Country section
+        // Country Section
         const countryDiv = document.createElement('div');
         countryDiv.classList.add('country');
-        countryDiv.innerHTML = `
-        <h3>${country.value}</h3>
-        `
+        countryDiv.innerHTML = `<h3>${player.country}</h3>`;
         card.appendChild(countryDiv);
 
-
-
-        // Score section:
+        // Score Section
         const scoreDiv = document.createElement('div');
         scoreDiv.classList.add('score');
-        scoreDiv.innerHTML = `<h3>${score.value}</h3>`
-
+        scoreDiv.innerHTML = `<h3>${player.score}</h3>`;
         card.appendChild(scoreDiv);
 
         // Score CRUD Section
@@ -50,34 +69,42 @@ btn.addEventListener("click", () => {
         scoreCrud.classList.add('scoreCrud');
 
         // Delete button
-        const deleteButton = document.createElement('button')
-        deleteButton.classList.add('delete')
-        deleteButton.innerHTML = `<i class="fa-solid fa-trash"></i>`
+        const deleteButton = document.createElement('button');
+        deleteButton.classList.add('delete');
+        deleteButton.innerHTML = `<i class="fa-solid fa-trash"></i>`;
+        deleteButton.addEventListener('click', () => {
+            players = players.filter(user => user.id !== player.id); 
+            renderLeaderboard(); 
+        });
 
+        // Add +5 button
+        const addButton = document.createElement('button');
+        addButton.classList.add('add');
+        addButton.innerText = `+ 5`;
+        addButton.addEventListener('click', () => {
+            console.log(player)
+            player.score += 5; 
+            renderLeaderboard(); 
+        });
+
+        // Subtract -5 button
+        const subButton = document.createElement('button');
+        subButton.classList.add('sub');
+        subButton.innerText = `- 5`;
+        subButton.addEventListener('click', () => {
+            player.score -= 5; 
+            renderLeaderboard(); 
+        });
+
+        scoreCrud.appendChild(addButton);
+        scoreCrud.appendChild(subButton);
         scoreCrud.appendChild(deleteButton);
         card.appendChild(scoreCrud);
 
-        // add
-        const addButton = document.createElement('button')
-        addButton.classList.add('add')
-        addButton.innerText = `+ 5`
-
-        scoreCrud.appendChild(addButton);
-        card.appendChild(scoreCrud);
-
-        // sub
-
-        const subButton = document.createElement('button')
-        subButton.classList.add('sub')
-        subButton.innerText = `- 5`
-
-        scoreCrud.appendChild(subButton);
-        card.appendChild(scoreCrud);
-
-
         leaderBoard.appendChild(card);
-    }
-})
+    });
+};
+
 
 const getFormattedDateTime = () => {
     const now = new Date();
@@ -91,4 +118,4 @@ const getFormattedDateTime = () => {
     }).format(now);
 
     return formattedDate;
-}
+};
