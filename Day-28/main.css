@@ -79,11 +79,14 @@ p {
     padding: 5px;
     letter-spacing: 2px;
 }
-.country, .score{
+
+.country,
+.score {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .scoreCrud {
     display: flex;
     gap: 5px;
@@ -96,8 +99,25 @@ p {
     height: 40px;
     width: 40px;
     border-radius: 50%;
-    display: inline-flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     border: none;
+}
+
+#loader {
+    display: none;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    /* background-color: red; */
+    border: 5px solid #ddd;
+    border-top-color: #333;
+    animation: roate 1s infinite;
+}
+
+@keyframes roate {
+    100% {
+        rotate: 360deg;
+    }
 }

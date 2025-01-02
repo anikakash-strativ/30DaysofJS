@@ -5,8 +5,19 @@ let score = document.getElementById('playerScore');
 const btn = document.querySelector('.addPlayer');
 const alart = document.querySelector('.alart');
 const leaderBoard = document.querySelector('.leaderBoard');
+const loader = document.getElementById('loader');
 
 let players = []; 
+
+const showLoader = (renderBoardCallBack)=>{
+    loader.style.display = 'block';
+    leaderBoard.style.display = 'none';
+    setTimeout(() =>{
+        loader.style.display = 'none';
+        leaderBoard.style.display = 'flex';
+        renderBoardCallBack();
+    }, 1000);
+}
 btn.addEventListener("click", () => {
     if (firstName.value === '' || lastName.value === '' || country.value === '' || score.value === '') {
         alart.innerHTML = '<p>All Fields are required.</p>';
@@ -31,7 +42,7 @@ btn.addEventListener("click", () => {
     country.value = '';
     score.value = '';
 
-    renderLeaderboard(); 
+    showLoader(renderLeaderboard); 
 });
 
 const renderLeaderboard = () => {
@@ -74,7 +85,7 @@ const renderLeaderboard = () => {
         deleteButton.innerHTML = `<i class="fa-solid fa-trash"></i>`;
         deleteButton.addEventListener('click', () => {
             players = players.filter(user => user.id !== player.id); 
-            renderLeaderboard(); 
+            showLoader(renderLeaderboard); 
         });
 
         // Add +5 button
@@ -84,7 +95,7 @@ const renderLeaderboard = () => {
         addButton.addEventListener('click', () => {
             console.log(player)
             player.score += 5; 
-            renderLeaderboard(); 
+            showLoader(renderLeaderboard); 
         });
 
         // Subtract -5 button
@@ -93,7 +104,7 @@ const renderLeaderboard = () => {
         subButton.innerText = `- 5`;
         subButton.addEventListener('click', () => {
             player.score -= 5; 
-            renderLeaderboard(); 
+            showLoader(renderLeaderboard); 
         });
 
         scoreCrud.appendChild(addButton);
