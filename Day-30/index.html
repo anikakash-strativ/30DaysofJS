@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex Form Validations</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <form action="#" id="validationForm">
+        <div class="firstNameDiv">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" placeholder="First Name" required>
+            <span class="" alartFName></span>
+        </div>
+
+
+
+        <div class="lastNameDiv">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" placeholder="Last Name" required>
+            <span class="" alartLName></span>
+        </div>
+
+
+
+        <div class="emailDiv">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Email" required>
+            <span class="" alartEmail></span>
+        </div>
+
+
+        <div class="phoneDiv">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" placeholder="Phone Number" required>
+            <span class="" alartPhone></span>
+        </div>
+
+
+
+        <div class="bioDiv">
+            <label for="bio">Bio</label>
+            <textarea id="bio" placeholder="Write something about yourself" rows="4" required></textarea>
+            <span class="" alartBio></span>
+        </div>
+
+
+
+        <div class="passwordDiv">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Password" required>
+            <span class="" alartPassword></span>
+        </div>
+
+
+
+        <div class="confirmPasswordDiv">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+            <span class="" alartCPassword></span>
+        </div>
+
+
+
+        <button type="submit" class="submitButton">Submit</button>
+    </form>
+
+
+    <script src="./main.js"></script>
+</body>
+
+</html>
