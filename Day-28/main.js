@@ -18,14 +18,14 @@ const showLoader = (renderBoardCallBack) => {
         renderBoardCallBack();
     }, 1000);
 }
+
+
 btn.addEventListener("click", () => {
     if (firstName.value === '' || lastName.value === '' || country.value === '' || score.value === '') {
         alart.innerHTML = '<p>All Fields are required.</p>';
         return;
     }
-
     alart.innerHTML = '';
-
 
     const player = {
         id: Date.now(),
@@ -35,9 +35,7 @@ btn.addEventListener("click", () => {
         date: getFormattedDateTime()
     };
     players.push(player);
-    // Store in local storage
-    let playerJSON = JSON.stringify(player);
-    localStorage.setItem(player.id, playerJSON);
+    updateLocalStorage();
 
 
     firstName.value = '';
@@ -48,6 +46,17 @@ btn.addEventListener("click", () => {
     showLoader(renderLeaderboard);
 });
 
+const updateLocalStorage = () => {
+    localStorage.setItem('players', JSON.stringify(players));
+}
+// ReUsable user score update functions
+function updatePlayerScore(player, scoreChange, callback) {
+    player.score += scoreChange;
+
+    updateLocalStorage();
+
+    if (callback) callback();
+}
 const renderLeaderboard = () => {
     leaderBoard.innerHTML = '';
 
@@ -88,8 +97,6 @@ const renderLeaderboard = () => {
         deleteButton.innerHTML = `<i class="fa-solid fa-trash"></i>`;
         deleteButton.addEventListener('click', () => {
             players = players.filter(user => user.id !== player.id);
-            // Updating data in local storages.
-            let getPlayer = localStorage.getItem(player.id);
             localStorage.removeItem(player.id); // remove user data.
             showLoader(renderLeaderboard);
         });
@@ -99,18 +106,7 @@ const renderLeaderboard = () => {
         addButton.classList.add('add');
         addButton.innerText = `+ 5`;
         addButton.addEventListener('click', () => {
-            console.log(player)
-            player.score += 5;
-            // console.log(player.score);
-
-            // Updating data in local storages.
-            let getPlayer = localStorage.getItem(player.id);
-            localStorage.removeItem(player.id); // remove user data.
-            let playerJSON = JSON.stringify(player);
-            localStorage.setItem(player.id, playerJSON); // push it with update score.
-            console.log(getPlayer);
-
-            showLoader(renderLeaderboard);
+            updatePlayerScore(player, 5, () => showLoader(renderLeaderboard))
         });
 
         // Subtract -5 button
@@ -118,16 +114,7 @@ const renderLeaderboard = () => {
         subButton.classList.add('sub');
         subButton.innerText = `- 5`;
         subButton.addEventListener('click', () => {
-            player.score -= 5;
-
-            // Updating data in local storages.
-            let getPlayer = localStorage.getItem(player.id);
-            localStorage.removeItem(player.id); // remove user data.
-            let playerJSON = JSON.stringify(player);
-            localStorage.setItem(player.id, playerJSON); // push it with update score.
-            console.log(getPlayer);
-
-            showLoader(renderLeaderboard);
+            updatePlayerScore(player, -5, () => showLoader(renderLeaderboard))
         });
 
         scoreCrud.appendChild(addButton);
@@ -156,19 +143,8 @@ const getFormattedDateTime = () => {
 
 
 const loadPlayersFromLocalStorage = () => {
-    players = [];
-
-    for (let i = 0; i < localStorage.length; i++) {
-        const key = localStorage.key(i);
-        const playerJSON = localStorage.getItem(key);
-
-        try {
-            const player = JSON.parse(playerJSON);
-            players.push(player); // Add the player object to the array
-        } catch (e) {
-            console.log(`Error Parsing player data from key ${key}:`, e);
-        }
-    }
+    const playersData = localStorage.getItem('players');
+    players =  playersData ? JSON.parse(playersData) : [];
     showLoader(renderLeaderboard);
 }
 
