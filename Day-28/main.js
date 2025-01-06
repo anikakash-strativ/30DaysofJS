@@ -7,12 +7,12 @@ const alart = document.querySelector('.alart');
 const leaderBoard = document.querySelector('.leaderBoard');
 const loader = document.getElementById('loader');
 
-let players = []; 
+let players = [];
 
-const showLoader = (renderBoardCallBack)=>{
+const showLoader = (renderBoardCallBack) => {
     loader.style.display = 'block';
     leaderBoard.style.display = 'none';
-    setTimeout(() =>{
+    setTimeout(() => {
         loader.style.display = 'none';
         leaderBoard.style.display = 'flex';
         renderBoardCallBack();
@@ -24,17 +24,20 @@ btn.addEventListener("click", () => {
         return;
     }
 
-    alart.innerHTML = ''; 
+    alart.innerHTML = '';
 
-    
+
     const player = {
-        id: Date.now(), 
+        id: Date.now(),
         name: `${firstName.value} ${lastName.value}`,
         country: country.value,
         score: parseInt(score.value),
         date: getFormattedDateTime()
     };
     players.push(player);
+    // Store in local storage
+    let playerJSON = JSON.stringify(player);
+    localStorage.setItem(player.id, playerJSON);
 
 
     firstName.value = '';
@@ -42,11 +45,11 @@ btn.addEventListener("click", () => {
     country.value = '';
     score.value = '';
 
-    showLoader(renderLeaderboard); 
+    showLoader(renderLeaderboard);
 });
 
 const renderLeaderboard = () => {
-    leaderBoard.innerHTML = ''; 
+    leaderBoard.innerHTML = '';
 
     players.sort((a, b) => b.score - a.score);
 
@@ -84,8 +87,11 @@ const renderLeaderboard = () => {
         deleteButton.classList.add('delete');
         deleteButton.innerHTML = `<i class="fa-solid fa-trash"></i>`;
         deleteButton.addEventListener('click', () => {
-            players = players.filter(user => user.id !== player.id); 
-            showLoader(renderLeaderboard); 
+            players = players.filter(user => user.id !== player.id);
+            // Updating data in local storages.
+            let getPlayer = localStorage.getItem(player.id);
+            localStorage.removeItem(player.id); // remove user data.
+            showLoader(renderLeaderboard);
         });
 
         // Add +5 button
@@ -94,8 +100,17 @@ const renderLeaderboard = () => {
         addButton.innerText = `+ 5`;
         addButton.addEventListener('click', () => {
             console.log(player)
-            player.score += 5; 
-            showLoader(renderLeaderboard); 
+            player.score += 5;
+            // console.log(player.score);
+
+            // Updating data in local storages.
+            let getPlayer = localStorage.getItem(player.id);
+            localStorage.removeItem(player.id); // remove user data.
+            let playerJSON = JSON.stringify(player);
+            localStorage.setItem(player.id, playerJSON); // push it with update score.
+            console.log(getPlayer);
+
+            showLoader(renderLeaderboard);
         });
 
         // Subtract -5 button
@@ -103,8 +118,16 @@ const renderLeaderboard = () => {
         subButton.classList.add('sub');
         subButton.innerText = `- 5`;
         subButton.addEventListener('click', () => {
-            player.score -= 5; 
-            showLoader(renderLeaderboard); 
+            player.score -= 5;
+
+            // Updating data in local storages.
+            let getPlayer = localStorage.getItem(player.id);
+            localStorage.removeItem(player.id); // remove user data.
+            let playerJSON = JSON.stringify(player);
+            localStorage.setItem(player.id, playerJSON); // push it with update score.
+            console.log(getPlayer);
+
+            showLoader(renderLeaderboard);
         });
 
         scoreCrud.appendChild(addButton);
@@ -130,3 +153,23 @@ const getFormattedDateTime = () => {
 
     return formattedDate;
 };
+
+
+const loadPlayersFromLocalStorage = () => {
+    players = [];
+
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        const playerJSON = localStorage.getItem(key);
+
+        try {
+            const player = JSON.parse(playerJSON);
+            players.push(player); // Add the player object to the array
+        } catch (e) {
+            console.log(`Error Parsing player data from key ${key}:`, e);
+        }
+    }
+    renderLeaderboard();
+}
+
+document.addEventListener('DOMContentLoaded', loadPlayersFromLocalStorage);
