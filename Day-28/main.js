@@ -169,7 +169,7 @@ const loadPlayersFromLocalStorage = () => {
             console.log(`Error Parsing player data from key ${key}:`, e);
         }
     }
-    renderLeaderboard();
+    showLoader(renderLeaderboard);
 }
 
 document.addEventListener('DOMContentLoaded', loadPlayersFromLocalStorage);
