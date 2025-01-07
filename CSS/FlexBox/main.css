@@ -1,0 +1,131 @@
+.purple {
+    background-color: rgb(233, 101, 233);
+}
+
+.orange {
+    background-color: orange;
+
+}
+
+.liteRed {
+    background-color: rgb(198, 81, 81);
+}
+
+.cyon {
+    background-color: cyan;
+}
+
+.container {
+    padding: 35px;
+    background-color: purple;
+
+
+}
+
+.main-section {
+    display: flex;
+    gap: 35px;
+    flex-direction: row-reverse;
+}
+
+.left {
+    width: 50%;
+
+}
+
+.left-top {
+    height: 100px;
+    margin-bottom: 15px;
+}
+
+.left-bottom {
+    display: flex;
+    gap: 25px;
+}
+
+.left-bottom-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.left-bottom-content {
+    height: 410px;
+    width: 50%;
+}
+
+.left-bottom-content-1 {
+    height: 300px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.left-bottom-content-2 {
+    height: 100px;
+    width: 100%;
+}
+
+.right {
+    width: 50%;
+
+}
+
+.right-top {
+    display: flex;
+    gap: 15px;
+}
+
+.right-top-left {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 10px;
+}
+
+.right-top-left-content-1 {
+    height: 100px;
+}
+
+.right-top-left-content-2 {
+    height: 80px;
+}
+
+.right-top-left-content-3 {
+    height: 130px;
+}
+
+.right-top-right {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 10px
+}
+
+.right-bottom-content {
+    height: 180px;
+    width: 100%;
+    margin-top: 12px;
+}
+
+
+
+.right-top-right-content-1 {
+    height: 120px;
+}
+
+.right-top-right-content-2 {
+    height: 100px;
+}
+
+.right-top-right-content-3 {
+    height: 90px;
+}
+
+.text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 150px;
+    font-weight: bold;
+    color: white;
+}

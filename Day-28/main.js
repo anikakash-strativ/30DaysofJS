@@ -144,7 +144,7 @@ const getFormattedDateTime = () => {
 
 const loadPlayersFromLocalStorage = () => {
     const playersData = localStorage.getItem('players');
-    players =  playersData ? JSON.parse(playersData) : [];
+    players = playersData ? JSON.parse(playersData) : [];
     showLoader(renderLeaderboard);
 }
 
