@@ -1,7 +1,7 @@
 :root {
-    --purple: rgb(233, 101, 233);
+    --purple: rgb(222, 22, 248);
     --orange: orange;
-    --red: rgb(198, 81, 81);
+    --red: rgb(248, 49, 27);
     --cyan: cyan;
 }
 
@@ -30,7 +30,7 @@
 .left>div:first-child {
     height: 100px;
     display: flex;
-    background-color: rgb(233, 101, 233);
+    background-color: var(--purple);
 }
 
 .left>div:last-child {
@@ -48,19 +48,19 @@
 .left-bottom-container>div:nth-child(1) {
     height: 300px;
     flex: 1;
-    background-color: orange;
+    background-color: var(--orange);
 }
 
 .left-bottom-container>div:nth-child(2) {
     height: 100px;
     flex: 1;
-    background-color: rgb(198, 81, 81);
+    background-color:var(--red);
 }
 
 .left-bottom-content {
     height: 410px;
     flex: 1;
-    background-color: cyan;
+    background-color: var(--cyan);
 }
 
 /* Right */
@@ -78,17 +78,17 @@
 
 .right-top>div:first-child>div:nth-child(1) {
     height: 100px;
-    background-color: rgb(198, 81, 81);
+    background-color: var(--orange);
 }
 
 .right-top>div:first-child>div:nth-child(2) {
     height: 80px;
-    background-color: cyan;
+    background-color: var(--cyan);
 }
 
 .right-top>div:first-child>div:nth-child(3) {
     height: 130px;
-    background-color: orange;
+    background-color: var(--orange);
 }
 
 .right-top>div:last-child {
@@ -100,23 +100,23 @@
 
 .right-top>div:last-child>div:nth-child(1) {
     height: 120px;
-    background-color: cyan;
+    background-color: var(--cyan);
 }
 
 .right-top>div:last-child>div:nth-child(2) {
     height: 100px;
-    background-color: orange;
+    background-color: var(--orange);
 }
 
 .right-top>div:last-child>div:nth-child(3) {
     height: 90px;
-    background-color: rgb(198, 81, 81);
+    background-color: var(--red);
 }
 
 .right>div:last-child {
     height: 180px;
     flex: 1;
-    background-color: rgb(233, 101, 233);
+    background-color: var(--purple);
 }
 
 .text {
@@ -126,4 +126,14 @@
     font-size: 150px;
     font-weight: bold;
     color: white;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column-reverse;
+    }
+    .main-section {
+        flex-direction: column;
+        gap: 20px;
+    }
 }
