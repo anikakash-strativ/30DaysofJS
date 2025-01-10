@@ -4,22 +4,23 @@
     box-sizing: border-box;
 }
 
-body {
-    display: flex;
+.container {
+    padding: 0 10px;
+    width: 1000PX;
+    max-width: 100%;
+    margin: auto;
+}
+header{
+    /* display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-direction: column; */
+    margin: 20px 0;
 }
 
-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    /* margin: 15px; */
-    gap: 15px;
-    padding: 25px;
+header h1 {
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 .alart {
@@ -35,42 +36,34 @@ header {
 
 .inputBox {
     padding: 15px;
-    /* margin: 5px; */
     outline: none;
     border: 0.5px solid #E5C9C5;
+    width: 100%;
 }
 
 .addPlayer {
     padding: 15px;
-    /* margin: 5px; */
-    width: 150px;
     background-color: #E5C9C5;
     border: none;
     font-size: 15px;
     color: white;
     cursor: pointer;
+    min-width: 110px;
 }
 
 .leaderBoard {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    width: 100%;
+    gap: 10px;
 }
 
 .card {
-    width: 65%;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #E5C9C5;
-    margin: 5px;
-    padding: 10px 5px 10px 20px;
-
+    padding: 3px 10px;
     >div {
         flex: 1 1 calc(24.99% - 10px);
-        /* padding: 15px; */
     }
 }
 
@@ -83,17 +76,18 @@ p {
 }
 
 .country,
-.score {
+.score, .name {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 .scoreCrud {
     display: flex;
     gap: 5px;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-end;
 }
 
 .scoreCrud button {
@@ -108,14 +102,13 @@ p {
 }
 
 #loader {
-    display: none;
     height: 100px;
     width: 100px;
     border-radius: 50%;
-    /* background-color: red; */
     border: 5px solid #ddd;
     border-top-color: #333;
     animation: roate 1s infinite;
+    margin-top: 10px;
 }
 
 @keyframes roate {
@@ -126,15 +119,22 @@ p {
 
 /* Large Mobile :480px. */
 
-@media (max-width: 800px) {
+@media (max-width: 1024px) {
 	h1{
         text-align: center;
     }
-    .inputArea, .addPlayer{
+    .inputArea{
        display: flex;
        flex-direction: column;
        justify-content: center;
        width: 100%;
        text-align: center;
     }
+    
+    .card {
+        flex-direction: column;
+        padding: 10px 8px;   
+        margin-bottom: 10px;
+        gap: 10px;
+    }   
 }

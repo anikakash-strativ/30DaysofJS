@@ -13,42 +13,48 @@
 
   <body>
     <header>
-      <h1>30 Days Of JavaScript Challenge Leaderboard</h1>
-      <div class="inputArea">
-        <input
-          type="text"
-          id="firstName"
-          class="inputBox"
-          placeholder="First Name"
-        />
-        <input
-          type="text"
-          name="lastName"
-          id="lastName"
-          class="inputBox"
-          placeholder="Last Name"
-        />
-        <input
-          type="text"
-          name="country"
-          id="country"
-          class="inputBox"
-          placeholder="Country"
-        />
-        <input
-          type="number"
-          name="playerScore"
-          id="playerScore"
-          class="inputBox"
-          placeholder="Player Score"
-        />
-        <button type="submit" class="addPlayer">Add Player</button>
+      <div class="container">
+        <h1>30 Days Of JavaScript Challenge Leaderboard</h1>
+        <div class="inputArea">
+          <input
+            type="text"
+            id="firstName"
+            class="inputBox"
+            placeholder="First Name"
+          />
+          <input
+            type="text"
+            name="lastName"
+            id="lastName"
+            class="inputBox"
+            placeholder="Last Name"
+          />
+          <input
+            type="text"
+            name="country"
+            id="country"
+            class="inputBox"
+            placeholder="Country"
+          />
+          <input
+            type="number"
+            name="playerScore"
+            id="playerScore"
+            class="inputBox"
+            placeholder="Player Score"
+          />
+          <button type="submit" class="addPlayer">Add Player</button>
+        </div>
       </div>
 
       <span class="alart"></span>
+      <div id="loader"></div>
     </header>
-    <div id="loader"></div>
-    <div class="leaderBoard"></div>
+
+    <div class="container">
+      <div class="leaderBoard"></div>
+    </div>
+
     <script src="main.js"></script>
   </body>
 </html>
