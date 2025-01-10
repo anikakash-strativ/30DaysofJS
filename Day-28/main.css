@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -15,8 +16,9 @@ header {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 80%;
-    margin: 15px;
+    width: 100%;
+    /* margin: 15px; */
+    gap: 15px;
     padding: 25px;
 }
 
@@ -26,21 +28,21 @@ header {
     font-size: 20px;
 }
 
-.inputArea {
-    padding: 25px;
-
+.inputArea{
+    display: flex;
+    gap: 10px;
 }
 
 .inputBox {
     padding: 15px;
-    margin: 5px;
+    /* margin: 5px; */
     outline: none;
     border: 0.5px solid #E5C9C5;
 }
 
 .addPlayer {
     padding: 15px;
-    margin: 5px;
+    /* margin: 5px; */
     width: 150px;
     background-color: #E5C9C5;
     border: none;
@@ -119,5 +121,20 @@ p {
 @keyframes roate {
     100% {
         rotate: 360deg;
+    }
+}
+
+/* Large Mobile :480px. */
+
+@media (max-width: 800px) {
+	h1{
+        text-align: center;
+    }
+    .inputArea, .addPlayer{
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       width: 100%;
+       text-align: center;
     }
 }

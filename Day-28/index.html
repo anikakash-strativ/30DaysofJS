@@ -1,32 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>30 Days Of JavaScript Challenge Leaderboard.</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="main.css">
-</head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="main.css" />
+  </head>
 
-<body>
+  <body>
     <header>
-        <h1>30 Days Of JavaScript Challenge Leaderboard</h1>
-        <div class="inputArea">
-            <input type="text" id="firstName" class="inputBox" placeholder="First Name">
-            <input type="text" name="lastName" id="lastName" class="inputBox" placeholder="Last Name">
-            <input type="text" name="country" id="country" class="inputBox" placeholder="Country">
-            <input type="number" name="playerScore" id="playerScore" class="inputBox" placeholder="Player Score">
-            <button type="submit" class="addPlayer">Add Player</button>
-        </div>
+      <h1>30 Days Of JavaScript Challenge Leaderboard</h1>
+      <div class="inputArea">
+        <input
+          type="text"
+          id="firstName"
+          class="inputBox"
+          placeholder="First Name"
+        />
+        <input
+          type="text"
+          name="lastName"
+          id="lastName"
+          class="inputBox"
+          placeholder="Last Name"
+        />
+        <input
+          type="text"
+          name="country"
+          id="country"
+          class="inputBox"
+          placeholder="Country"
+        />
+        <input
+          type="number"
+          name="playerScore"
+          id="playerScore"
+          class="inputBox"
+          placeholder="Player Score"
+        />
+        <button type="submit" class="addPlayer">Add Player</button>
+      </div>
 
-        <span class="alart"></span>
+      <span class="alart"></span>
     </header>
     <div id="loader"></div>
-    <div class="leaderBoard">
-
-    </div>
+    <div class="leaderBoard"></div>
     <script src="main.js"></script>
-</body>
-
+  </body>
 </html>
