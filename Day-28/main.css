@@ -4,25 +4,73 @@
     box-sizing: border-box;
 }
 
+:root{
+    --primary-color: #E5C9C5;
+    --background-color: white;
+    --text-color: black;
+    --button-background-color: #734640;
+    --button-text-color: white;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+body.night-mode {
+    --primary-color: #2E3A47;
+    --background-color: #121212;
+    --text-color: #E5E5E5;
+    --button-background-color: #455A64;
+    --button-text-color: white;
+}
+
 .container {
     padding: 0 10px;
     width: 1000PX;
     max-width: 100%;
     margin: auto;
 }
-header{
-    /* display: flex;
-    justify-content: center;
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    flex-direction: column; */
+}
+
+.navbar ul{
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    width: 800px;
+    justify-content: flex-end;
+}
+
+.navbar li{
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.logo{
+    height: 100px;
+    padding: 10px;
+}
+
+.hamburger {
+    display: none; /* Hide the hamburger icon */
+}
+header{
     margin: 20px 0;
 }
 
-header h1 {
-    margin-bottom: 10px;
-    text-align: center;
+.hideen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
 .alart {
     color: red;
     font-weight: bold;
@@ -37,16 +85,16 @@ header h1 {
 .inputBox {
     padding: 15px;
     outline: none;
-    border: 0.5px solid #E5C9C5;
+    border: 0.5px solid var(--primary-color);
     width: 100%;
 }
 
 .addPlayer {
     padding: 15px;
-    background-color: #E5C9C5;
+    background-color: var(--button-background-color);
     border: none;
     font-size: 15px;
-    color: white;
+    color: var(--button-text-color);
     cursor: pointer;
     min-width: 110px;
 }
@@ -60,7 +108,8 @@ header h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #E5C9C5;
+    background-color: var(--primary-color);
+    color: var(--text-color);
     padding: 3px 10px;
     >div {
         flex: 1 1 calc(24.99% - 10px);
@@ -91,7 +140,8 @@ p {
 }
 
 .scoreCrud button {
-    background-color: white;
+    background-color: var(--button-background-color);
+    color: var(--button-text-color);
     height: 40px;
     width: 40px;
     border-radius: 50%;
@@ -105,8 +155,8 @@ p {
     height: 100px;
     width: 100px;
     border-radius: 50%;
-    border: 5px solid #ddd;
-    border-top-color: #333;
+    border: 5px solid var(--primary-color);
+    border-top-color: var(--text-color);
     animation: roate 1s infinite;
     margin-top: 10px;
 }
@@ -116,8 +166,6 @@ p {
         rotate: 360deg;
     }
 }
-
-/* Large Mobile :480px. */
 
 @media (max-width: 1024px) {
 	h1{
@@ -137,4 +185,38 @@ p {
         margin-bottom: 10px;
         gap: 10px;
     }   
+    .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .hamburger {
+        display: flex; /* Show the hamburger icon */
+        background: none;
+        border: none;
+        font-size: 25px;
+        cursor: pointer;
+        color: var(--text-color);
+        margin-right: 10px; /* Adjust spacing if needed */
+    }
+
+    .navbar ul {
+        display: none; /* Hide the menu by default */
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        background-color: var(--background-color);
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .navbar ul.active {
+        display: flex; /* Show the menu when active */
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+    }
 }

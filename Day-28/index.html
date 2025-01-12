@@ -14,7 +14,20 @@
   <body>
     <header>
       <div class="container">
-        <h1>30 Days Of JavaScript Challenge Leaderboard</h1>
+        <div class="navbar">
+          <img src="./logo.png" alt="" class="logo" />
+          <button class="hamburger" aria-label="Toggle menu">
+            <i class="fa fa-bars"></i>
+        </button>
+          <ul>
+            <li>About</li>
+            <li>Projects</li>
+            <li class="color-theme"></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="container">
         <div class="inputArea">
           <input
             type="text"
@@ -47,8 +60,10 @@
         </div>
       </div>
 
-      <span class="alart"></span>
-      <div id="loader"></div>
+      <div class="hideen">
+        <span class="alart"></span>
+        <div id="loader"></div>
+      </div>
     </header>
 
     <div class="container">

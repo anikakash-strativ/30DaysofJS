@@ -6,6 +6,22 @@ const btn = document.querySelector('.addPlayer');
 const alart = document.querySelector('.alart');
 const leaderBoard = document.querySelector('.leaderBoard');
 const loader = document.getElementById('loader');
+const colorMood = document.querySelector('.color-theme'); 
+
+colorMood.innerHTML = `<i class="fa-solid fa-moon"></i>`;
+
+
+colorMood.addEventListener("click", ()=>{
+    const body = document.body;
+    body.classList.toggle('night-mode');
+
+    const isNightMode = body.classList.contains('night-mode');
+    localStorage.setItem('theme', isNightMode ? 'night' : 'light');
+
+    colorMood.innerHTML = isNightMode 
+    ? `<i class="fa-solid fa-sun"></i>` 
+    : `<i class="fa-solid fa-moon"></i>`;
+})
 
 let players = [];
 
@@ -143,9 +159,20 @@ const getFormattedDateTime = () => {
 
 
 const loadPlayersFromLocalStorage = () => {
+
+    const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'night') {
+    document.body.classList.add('night-mode');
+    colorMood.innerHTML = `<i class="fa-solid fa-sun"></i>`;
+  }
     const playersData = localStorage.getItem('players');
     players = playersData ? JSON.parse(playersData) : [];
     showLoader(renderLeaderboard);
 }
 
 document.addEventListener('DOMContentLoaded', loadPlayersFromLocalStorage);
+
+document.querySelector('.hamburger').addEventListener('click', () => {
+    const menu = document.querySelector('.navbar ul');
+    menu.classList.toggle('active');
+});
