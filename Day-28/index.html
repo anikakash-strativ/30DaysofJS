@@ -12,59 +12,65 @@
   </head>
 
   <body>
-    <header>
-      <div class="container">
-        <div class="navbar">
-          <img src="./logo.png" alt="" class="logo" />
-          <button class="hamburger" aria-label="Toggle menu">
-            <i class="fa fa-bars"></i>
-        </button>
+    <div class="container">
+      <nav>
+        <div class="logo">
+          <h1>30DaysOfJS</h1>
+        </div>
+        <div class="nav_wrapper">
           <ul>
-            <li>About</li>
-            <li>Projects</li>
-            <li class="color-theme"></li>
+            <li><a href="">Home</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Review</a></li>
+            <li><a href="" class="btn">Login</a></li>
           </ul>
+          <div class="nightMood">
+            <i id="mood" class="fa-solid fa-moon"></i>
+          </div>
+          <div class="icon">
+            <i id="bar" class="fa-solid fa-bars"></i>
+          </div>
         </div>
-      </div>
+      </nav>
+    </div>
 
-      <div class="container">
-        <div class="inputArea">
-          <input
-            type="text"
-            id="firstName"
-            class="inputBox"
-            placeholder="First Name"
-          />
-          <input
-            type="text"
-            name="lastName"
-            id="lastName"
-            class="inputBox"
-            placeholder="Last Name"
-          />
-          <input
-            type="text"
-            name="country"
-            id="country"
-            class="inputBox"
-            placeholder="Country"
-          />
-          <input
-            type="number"
-            name="playerScore"
-            id="playerScore"
-            class="inputBox"
-            placeholder="Player Score"
-          />
-          <button type="submit" class="addPlayer">Add Player</button>
-        </div>
+    <div class="container">
+      <div class="inputArea">
+        <input
+          type="text"
+          id="firstName"
+          class="inputBox"
+          placeholder="First Name"
+        />
+        <input
+          type="text"
+          name="lastName"
+          id="lastName"
+          class="inputBox"
+          placeholder="Last Name"
+        />
+        <input
+          type="text"
+          name="country"
+          id="country"
+          class="inputBox"
+          placeholder="Country"
+        />
+        <input
+          type="number"
+          name="playerScore"
+          id="playerScore"
+          class="inputBox"
+          placeholder="Player Score"
+        />
+        <button type="submit" class="addPlayer">Add Player</button>
       </div>
+    </div>
 
-      <div class="hideen">
-        <span class="alart"></span>
-        <div id="loader"></div>
-      </div>
-    </header>
+    <div class="hideen">
+      <span class="alart"></span>
+      <div id="loader"></div>
+    </div>
 
     <div class="container">
       <div class="leaderBoard"></div>
